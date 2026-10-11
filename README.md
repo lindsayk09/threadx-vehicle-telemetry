@@ -7,15 +7,48 @@ An industry-grade, real-time Web Human-Machine Interface (HMI) and telemetry das
 # System Architecture & Pipeline
 
 The system is engineered around a low-latency pipeline connecting physical edge compute nodes to a browser-based cockpit dashboard:
+The system architecture is structured with clear isolation between sensor services, central application logic, controller layers, and the web-based HMI dashboard:
 
-```text
-[ Onboard Sensors & Child Presence Node ]
-                   │
-                   ▼
-[ ThreadX Standalone Microcontroller Board ]  (Azure RTOS / ThreadX Execution Environment)
-                   │  (UART / Serial Stream / Custom Protocol)
-                   ▼
-[ Middleware Bridge / Node.js Process ]
-                   │  (WebSockets / JSON Payload)
-                   ▼
-[ React.js HMI Web Dashboard ]  (Live Cockpit, Telemetry & Safety Alerts)
+```mermaid
+flowchart TD
+    subgraph Inputs["Sensor Services — Simulated or Physical"]
+        Temperature["Cabin Temperature Sensor"]
+        Presence["Child Presence Sensor"]
+    end
+
+    subgraph Central["Application Services — Laptop / Edge Target"]
+        Guardian["Guardian Loop — Risk Evaluation"]
+        Warning["Warning and Status Output"]
+        Adapter["Actuation Adapter"]
+    end
+
+    subgraph Control["Controller and Actuator Layer & Target Board"]
+        ThreadX["ThreadX RTOS Embedded Target"]
+        CDA["OpenSOVD Classic Diagnostic Adapter"]
+        Controller["Window / Fan / Alarm Controller"]
+        Simulated["Simulated Actuator"]
+        Physical["Physical Actuator"]
+    end
+
+    subgraph HMI["Web HMI Dashboard"]
+        React["React.js Cockpit Dashboard<br/>(Real-time State & Alerts)"]
+    end
+
+    Temperature -->|"uProtocol: temperature events"| Guardian
+    Presence -->|"uProtocol: presence events"| Guardian
+    Guardian -->|"Current state and warnings"| Warning
+    Guardian -->|"uProtocol RPC: action request"| Adapter
+    Guardian -->|"Telemetry stream"| React
+    Adapter -->|"SOVD REST request"| CDA
+    CDA -->|"UDS over DoIP / Serial"| Controller
+    Controller -->|"Virtual setup"| Simulated
+    Controller -->|"Hardware setup"| Physical
+    Adapter -.->|"Action result or failure"| Guardian
+
+The simulated and physical actuator branches represent alternative
+test configurations. The action result returns through the controller,
+CDA, and adapter to Guardian.
+
+**openDuT manages the test connections and topology.** It supports
+switching between virtual and physical test configurations; it is
+not an additional step in the action-request chain.
