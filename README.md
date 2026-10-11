@@ -6,7 +6,6 @@ An industry-grade, real-time Web Human-Machine Interface (HMI) and telemetry das
 
 # System Architecture & Pipeline
 
-The system is engineered around a low-latency pipeline connecting physical edge compute nodes to a browser-based cockpit dashboard:
 The system architecture is structured with clear isolation between sensor services, central application logic, controller layers, and the web-based HMI dashboard:
 
 ```mermaid
@@ -44,11 +43,3 @@ flowchart TD
     Controller -->|"Virtual setup"| Simulated
     Controller -->|"Hardware setup"| Physical
     Adapter -.->|"Action result or failure"| Guardian
-
-The simulated and physical actuator branches represent alternative
-test configurations. The action result returns through the controller,
-CDA, and adapter to Guardian.
-
-**openDuT manages the test connections and topology.** It supports
-switching between virtual and physical test configurations; it is
-not an additional step in the action-request chain.
