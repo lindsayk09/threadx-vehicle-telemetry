@@ -43,3 +43,5 @@ flowchart TD
     Controller -->|"Virtual setup"| Simulated
     Controller -->|"Hardware setup"| Physical
     Adapter -.->|"Action result or failure"| Guardian
+
+<video src="https://github.com/lindsayk09/https://github.com/lindsayk09/threadx-vehicle-telemetry/raw/main/assets/Demo_2(1).mp4" width="100%" controls autoplay muted></video>
