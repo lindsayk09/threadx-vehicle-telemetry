@@ -45,6 +45,8 @@ flowchart TD
     Adapter -.->|"Action result or failure"| Guardian
 ```
 
+## 📺 Live Dashboard & Demo
+
 [https://github.com/user-attachments/assets/841010f8-67a1-4103-8471-3d0cbcaba61d](https://github.com/user-attachments/assets/841010f8-67a1-4103-8471-3d0cbcaba61d)
 
 ---
