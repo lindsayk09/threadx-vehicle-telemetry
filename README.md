@@ -44,6 +44,8 @@ flowchart TD
     Controller -->|"Hardware setup"| Physical
     Adapter -.->|"Action result or failure"| Guardian
 
+---
+
 # Tech Stack & Architecture Highlights
 
 * **Frontend & HMI Dashboard:** Built using **React.js** and modern **CSS** to render real-time vehicle telemetry, status warnings, and safety-critical alerts in a low-latency cockpit view.
