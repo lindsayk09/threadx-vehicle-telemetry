@@ -44,7 +44,7 @@ flowchart TD
     Controller -->|"Hardware setup"| Physical
     Adapter -.->|"Action result or failure"| Guardian
 
-# 🛠️ Tech Stack & Architecture Highlights
+# Tech Stack & Architecture Highlights
 
 * **Frontend & HMI Dashboard:** Built using **React.js** and modern **CSS** to render real-time vehicle telemetry, status warnings, and safety-critical alerts in a low-latency cockpit view.
 * **Messaging & Event Bus:** Utilizes **uProtocol** for decoupled, publish-subscribe event-driven communication between vehicle sensors (cabin temperature, child presence) and application services.
@@ -54,7 +54,7 @@ flowchart TD
 
 ---
 
-# ⚙️ Engineering & Development Process
+# Engineering & Development Process
 
 1. **Safety-First System Modeling:** Designed the guardian loop architecture to continuously ingest sensor events via uProtocol, executing real-time risk evaluations for cabin environment safety.
 2. **Hardware-Software Co-Design:** Bridged high-level web dashboards (React) with low-level hardware execution (ThreadX RTOS and virtualized actuators) to simulate real-world automotive environments.
