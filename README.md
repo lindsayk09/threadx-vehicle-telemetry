@@ -44,4 +44,6 @@ flowchart TD
     Controller -->|"Hardware setup"| Physical
     Adapter -.->|"Action result or failure"| Guardian
 
+<video src="https://raw.githubusercontent.com/lindsayk09/threadx-vehicle-telemetry/main/Demo%202%20(1).mp4" width="100%" controls></video>
+
 
