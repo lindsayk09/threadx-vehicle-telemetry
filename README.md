@@ -45,6 +45,11 @@ flowchart TD
     Adapter -.->|"Action result or failure"| Guardian
 ```
 
-<video src="https://raw.githubusercontent.com/lindsayk09/threadx-vehicle-telemetry/main/Demo%202%20(1).mp4" width="100%" controls></video>
+
+
+https://github.com/user-attachments/assets/841010f8-67a1-4103-8471-3d0cbcaba61d
+
+
+
 
 
