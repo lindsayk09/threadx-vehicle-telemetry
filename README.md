@@ -14,7 +14,7 @@ A browser-based monitoring interface for an automotive child-presence and cabin-
 
 ## Real-Time Dashboard Demonstration
 
-[▶ Watch the Demo Video](./Demo_2%20%281%29.mp4)
+https://github.com/user-attachments/assets/e94b33d0-119c-4e8a-8878-03cd803323a3
 
 ## What the dashboard demonstrates
 
