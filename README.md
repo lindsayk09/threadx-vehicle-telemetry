@@ -12,6 +12,10 @@ A browser-based monitoring interface for an automotive child-presence and cabin-
 - [Recorded dashboard demo](./Demo_2%20%281%29.mp4)
 - [Original Six_In_Sync team implementation](https://github.com/Eclipse-SDV-Hackathon-Chapter-Four/Six_In_Sync)
 
+## Real-Time Dashboard Demonstration
+
+[▶ Watch the Demo Video](./Demo_2%20%281%29.mp4)
+
 ## What the dashboard demonstrates
 
 - Multi-service terminal-style views for Guardian, child-presence sensing, temperature sensing, and actuator simulation.
